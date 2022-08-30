@@ -81,6 +81,24 @@ if __name__ == '__main__':
     ui8.pushButton.clicked.connect(partial(MainWindow.show, ))
     ui8.pushButton.clicked.connect(partial(MainWindow8.close, ))
 
+    MainWindow9 = QMainWindow()
+    ui9 = Ui_Form9()
+    ui9.setupUi(MainWindow9)
+    ui9.pushButton.clicked.connect(partial(MainWindow.show, ))
+    ui9.pushButton.clicked.connect(partial(MainWindow9.close, ))
+
+    MainWindow10 = QMainWindow()
+    ui10 = Ui_Form10()
+    ui10.setupUi(MainWindow10)
+    ui10.pushButton.clicked.connect(partial(MainWindow.show, ))
+    ui10.pushButton.clicked.connect(partial(MainWindow10.close, ))
+
+    MainWindow11 = QMainWindow()
+    ui11 = Ui_Form11()
+    ui11.setupUi(MainWindow11)
+    ui11.pushButton.clicked.connect(partial(MainWindow.show, ))
+    ui11.pushButton.clicked.connect(partial(MainWindow11.close, ))
+
  #主菜单的槽与信号
     ui.pushButton.clicked.connect(partial(MainWindow1.show, ))
     ui.pushButton.clicked.connect(partial(MainWindow.close, ))
@@ -115,6 +133,12 @@ if __name__ == '__main__':
     ui.actionzong.triggered.connect(partial(MainWindow.close, ))
     ui.actiondianliu.triggered.connect(partial(MainWindow8.show, ))
     ui.actiondianliu.triggered.connect(partial(MainWindow.close, ))
+    ui.actionHelp.triggered.connect(partial(MainWindow9.show, ))
+    ui.actionHelp.triggered.connect(partial(MainWindow.close, ))
+    ui.actionguan.triggered.connect(partial(MainWindow10.show, ))
+    ui.actionguan.triggered.connect(partial(MainWindow.close, ))
+    ui.actionjiemian.triggered.connect(partial(MainWindow11.show, ))
+    ui.actionjiemian.triggered.connect(partial(MainWindow.close, ))
 
 #退出程序
     sys.exit(app.exec_())
