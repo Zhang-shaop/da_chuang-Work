@@ -44,13 +44,13 @@ file4.write(datalist[3])
 file4.close()
 
 print('recieved message data[4]:', datalist[4])
-file5 = open('氧槽温度.txt', 'w')
+file5 = open('碱液流量.txt', 'w')
 file5.write(datalist[4])
 file5.close()
 
 
 print('recieved message data[5]:', datalist[5])
-file6 = open('氧槽温度.txt', 'w')
+file6 = open('碱液温度.txt', 'w')
 file6.write(datalist[5])
 file6.close()
 
