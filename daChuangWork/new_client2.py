@@ -1,9 +1,8 @@
-#目前实现了多组数据的传输问题。
 
 import socket
 import sys
 IP = '10.21.20.155'   #填写服务器端的IP地址!!!
-port = 40001 #端口号必须一致!!!
+port = 40002 #端口号必须一致!!!
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 #判断是否连接成功
@@ -56,4 +55,3 @@ file6.close()
 
 
 s.close()
-

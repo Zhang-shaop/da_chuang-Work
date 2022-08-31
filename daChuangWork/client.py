@@ -1,8 +1,8 @@
 # -*- encoding: utf-8 -*-
 import socket
 
-IP = "10.16.65.183"  # 服务器端可以写"localhost"，可以为空字符串""，可以为本机IP地址
-port = 40005  # 端口号
+IP = '10.21.20.155'   # 服务器端可以写"localhost"，可以为空字符串""，可以为本机IP地址
+port = 40002  # 端口号
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.bind((IP, port))
 s.listen(1)
