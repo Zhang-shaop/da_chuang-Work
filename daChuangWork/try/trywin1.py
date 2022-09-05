@@ -11,9 +11,27 @@ from PyQt5.QtWidgets import *
 
 #加入了实时刷新的功能
 #可视化页面
+#由于设置的类型准换问题，文件夹中一定只能是数字！！！不然会闪退。
+
+# 辨别是否为正数
+def is_number(s):
+    try:
+        float(s)
+        return True
+    except ValueError:
+        pass
+    try:
+        import unicodedata
+        unicodedata.numeric(s)
+        return True
+    except(TypeError, ValueError):
+        pass
+    return False
+
 
 #1室电压
 class Ui_Form(object):
+
     def setupUi(self, Form):
         Form.setObjectName("Form")
         Form.resize(629, 422)
@@ -75,7 +93,7 @@ class Ui_Form(object):
         file1.close()
         # 设置状态
         file1_data = float(self.lineEdit.text())
-        if file1_data < 50 and file1_data > 0:
+        if file1_data < 50 and file1_data > 0 and is_number(file1_data)!=0:
             state = '安全'
         elif file1_data > 50:
             state = '危险'
@@ -92,6 +110,7 @@ class Ui_Form(object):
 
 #2室电压
 class Ui_Form2(object):
+
     def setupUi(self, Form):
         Form.setObjectName("Form")
         Form.resize(629, 422)
@@ -151,12 +170,12 @@ class Ui_Form2(object):
         file1.close()
         # 设置状态
         file1_data = float(self.lineEdit.text())
-        if file1_data < 50 and file1_data > 0:
+        if file1_data < 50 and file1_data > 0 and is_number(file1_data)!=0:
             state = '安全'
         elif file1_data > 50:
             state = '危险'
         else:
-               state = '数据异常'
+            state = '数据异常'
         self.lineEdit_2.setText(state)
 
     def retranslateUi(self, Form):
@@ -167,6 +186,7 @@ class Ui_Form2(object):
         self.label_2.setText(_translate("Form", "安全状态："))
 
 class Ui_Form3(object):
+
      def setupUi(self, Form):
          Form.setObjectName("Form")
          Form.resize(629, 422)
@@ -226,7 +246,7 @@ class Ui_Form3(object):
          file1.close()
          # 设置状态
          file1_data = float(self.lineEdit.text())
-         if file1_data < 50 and file1_data > 0:
+         if file1_data < 50 and file1_data > 0 and is_number(file1_data)!=0:
              state = '安全'
          elif file1_data > 50:
              state = '危险'
@@ -243,6 +263,7 @@ class Ui_Form3(object):
 
 #4室电压
 class Ui_Form4(object):
+
     def setupUi(self, Form):
         Form.setObjectName("Form")
         Form.resize(629, 422)
@@ -301,7 +322,7 @@ class Ui_Form4(object):
         file1.close()
         # 设置状态
         file1_data = float(self.lineEdit.text())
-        if file1_data < 50 and file1_data > 0:
+        if file1_data < 50 and file1_data > 0 and is_number(file1_data)!=0:
             state = '安全'
         elif file1_data > 50:
             state = '危险'
@@ -318,6 +339,7 @@ class Ui_Form4(object):
 
     # 5室电压
 class Ui_Form5(object):
+
     def setupUi(self, Form):
         Form.setObjectName("Form")
         Form.resize(629, 422)
@@ -375,7 +397,7 @@ class Ui_Form5(object):
         file1.close()
         # 设置状态
         file1_data = float(self.lineEdit.text())
-        if file1_data < 50 and file1_data > 0:
+        if file1_data < 50 and file1_data > 0 and is_number(file1_data)!=0:
             state = '安全'
         elif file1_data > 50:
             state = '危险'
@@ -392,6 +414,7 @@ class Ui_Form5(object):
 
     # 6室电压
 class Ui_Form6(object):
+
     def setupUi(self, Form):
         Form.setObjectName("Form")
         Form.resize(629, 422)
@@ -450,7 +473,7 @@ class Ui_Form6(object):
         file1.close()
         # 设置状态
         file1_data = float(self.lineEdit.text())
-        if file1_data < 50 and file1_data > 0:
+        if file1_data < 50 and file1_data > 0 and is_number(file1_data)!=0:
             state = '安全'
         elif file1_data > 50:
             state = '危险'
@@ -466,6 +489,7 @@ class Ui_Form6(object):
         self.label_2.setText(_translate("Form", "安全状态："))
 #总电压
 class Ui_Form7(object):
+
     def setupUi(self, Form):
         Form.setObjectName("Form")
         Form.resize(629, 422)
@@ -524,7 +548,7 @@ class Ui_Form7(object):
         file1.close()
         # 设置状态
         file1_data = float(self.lineEdit.text())
-        if file1_data < 50 and file1_data > 0:
+        if file1_data < 50 and file1_data > 0 and is_number(file1_data)!=0:
             state = '安全'
         elif file1_data > 50:
             state = '危险'
@@ -597,7 +621,7 @@ class Ui_Form8(object):
         file1.close()
         # 设置状态
         file1_data = float(self.lineEdit.text())
-        if file1_data < 50 and file1_data > 0:
+        if file1_data < 50 and file1_data > 0 and is_number(file1_data)!=0:
             state = '安全'
         elif file1_data > 50:
             state = '危险'

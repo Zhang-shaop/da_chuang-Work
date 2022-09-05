@@ -4,7 +4,7 @@ import threading
 import socket
 import time
 
-
+#没有断开连接的操作
 """
 服务器端：
 实现tcp网络通信，服务器端实现加减法，并将计算结果返回给客户端；
@@ -151,7 +151,7 @@ class SocketMathServer:
 
 
 if __name__ == '__main__':
-    addr = '127.0.0.1', 10004
+    addr = '127.0.0.1', 10006
     s1 = SocketMathServer(*addr)
     s1.start()
 

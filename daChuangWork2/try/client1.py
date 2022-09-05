@@ -3,6 +3,7 @@ import threading
 import socket
 import time
 
+#似乎没有设置断开连接的操作！！！
 """
 客户端：
 实现tcp网络通信，服务器端实现加减法，并将计算结果返回给客户端；
@@ -118,7 +119,7 @@ class SocketMathClient:
 
 
 while True:
-    server_ip, server_port = '127.0.0.1', 10004
+    server_ip, server_port = '127.0.0.1', 10006
     sc = SocketMathClient(server_ip, server_port)
     sc.start()
     sc.send()
