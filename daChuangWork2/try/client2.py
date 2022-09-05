@@ -23,9 +23,9 @@ class SocketMathClient:
         self._sock.connect(self.addr)
         # my_addr, my_port = self._sock.getsockname()
         # self._sock.send('{} is ready'.format((my_addr, my_port)).encode())
-        #msg = input()
-        #encode_msg = msg
-        #self.send(encode_msg)
+        # msg = input()
+        # encode_msg = msg
+        # self.send(encode_msg)
         thread_obj = threading.Thread(target=self.recv, name='recv')
         thread_obj.start()
 
@@ -43,62 +43,62 @@ class SocketMathClient:
                 datalist = data.split('*')
 
                 print('recieved message data[0]:', datalist[0])
-                file1 = open('E:/new dachuang/daChuangWork/data/总电压.txt', 'w')
+                file1 = open('E:/new dachuang/daChuangWork2/data/总电压.txt', 'w')
                 file1.write(datalist[0])
                 file1.close()
 
                 print('recieved message data[1]:', datalist[1])
-                file2 = open('E:/new dachuang/daChuangWork/data/总电流.txt', 'w')
+                file2 = open('E:/new dachuang/daChuangWork2/data/总电流.txt', 'w')
                 file2.write(datalist[1])
                 file2.close()
 
                 print('recieved message data[2]:', datalist[2])
-                file3 = open('E:/new dachuang/daChuangWork/data/氢槽温度.txt', 'w')
+                file3 = open('E:/new dachuang/daChuangWork2/data/氢槽温度.txt', 'w')
                 file3.write(datalist[2])
                 file3.close()
 
                 print('recieved message data[3]:', datalist[3])
-                file4 = open('E:/new dachuang/daChuangWork/data/氧槽温度.txt', 'w')
+                file4 = open('E:/new dachuang/daChuangWork2/data/氧槽温度.txt', 'w')
                 file4.write(datalist[3])
                 file4.close()
 
                 print('recieved message data[4]:', datalist[4])
-                file5 = open('E:/new dachuang/daChuangWork/data/碱液流量.txt', 'w')
+                file5 = open('E:/new dachuang/daChuangWork2/data/碱液流量.txt', 'w')
                 file5.write(datalist[4])
                 file5.close()
 
                 print('recieved message data[5]:', datalist[5])
-                file6 = open('E:/new dachuang/daChuangWork/data/碱液温度.txt', 'w')
+                file6 = open('E:/new dachuang/daChuangWork2/data/碱液温度.txt', 'w')
                 file6.write(datalist[5])
                 file6.close()
 
                 print('recieved message data[6]:', datalist[6])
-                file7 = open('E:/new dachuang/daChuangWork/data/1室电压.txt', 'w')
+                file7 = open('E:/new dachuang/daChuangWork2/data/1室电压.txt', 'w')
                 file7.write(datalist[6])
                 file7.close()
 
                 print('recieved message data[7]:', datalist[7])
-                file8 = open('E:/new dachuang/daChuangWork/data/2室电压.txt', 'w')
+                file8 = open('E:/new dachuang/daChuangWork2/data/2室电压.txt', 'w')
                 file8.write(datalist[7])
                 file8.close()
 
                 print('recieved message data[8]:', datalist[8])
-                file9 = open('E:/new dachuang/daChuangWork/data/3室电压.txt', 'w')
+                file9 = open('E:/new dachuang/daChuangWork2/data/3室电压.txt', 'w')
                 file9.write(datalist[8])
                 file9.close()
 
                 print('recieved message data[9]:', datalist[9])
-                file10 = open('E:/new dachuang/daChuangWork/data/4室电压.txt', 'w')
+                file10 = open('E:/new dachuang/daChuangWork2/data/4室电压.txt', 'w')
                 file10.write(datalist[9])
                 file10.close()
 
                 print('recieved message data[10]:', datalist[10])
-                file11 = open('E:/new dachuang/daChuangWork/data/5室电压.txt', 'w')
+                file11 = open('E:/new dachuang/daChuangWork2/data/5室电压.txt', 'w')
                 file11.write(datalist[10])
                 file11.close()
 
                 print('recieved message data[11]:', datalist[11])
-                file12 = open('E:/new dachuang/daChuangWork/data/6室电压.txt', 'w')
+                file12 = open('E:/new dachuang/daChuangWork2/data/6室电压.txt', 'w')
                 file12.write(datalist[11])
                 file12.close()
 
@@ -118,7 +118,7 @@ class SocketMathClient:
 
 
 while True:
-    server_ip, server_port = '127.0.0.1', 10003
+    server_ip, server_port = '127.0.0.1', 10004
     sc = SocketMathClient(server_ip, server_port)
     sc.start()
     sc.send()

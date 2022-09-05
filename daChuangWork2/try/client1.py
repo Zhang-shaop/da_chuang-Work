@@ -72,6 +72,38 @@ class SocketMathClient:
                 file6.write(datalist[5])
                 file6.close()
 
+                print('recieved message data[6]:', datalist[6])
+                file7 = open('E:/new dachuang/daChuangWork2/data/1室电压.txt', 'w')
+                file7.write(datalist[6])
+                file7.close()
+
+                print('recieved message data[7]:', datalist[7])
+                file8 = open('E:/new dachuang/daChuangWork2/data/2室电压.txt', 'w')
+                file8.write(datalist[7])
+                file8.close()
+
+                print('recieved message data[8]:', datalist[8])
+                file9 = open('E:/new dachuang/daChuangWork2/data/3室电压.txt', 'w')
+                file9.write(datalist[8])
+                file9.close()
+
+                print('recieved message data[9]:', datalist[9])
+                file10 = open('E:/new dachuang/daChuangWork2/data/4室电压.txt', 'w')
+                file10.write(datalist[9])
+                file10.close()
+
+                print('recieved message data[10]:', datalist[10])
+                file11 = open('E:/new dachuang/daChuangWork2/data/5室电压.txt', 'w')
+                file11.write(datalist[10])
+                file11.close()
+
+                print('recieved message data[11]:', datalist[11])
+                file12 = open('E:/new dachuang/daChuangWork2/data/6室电压.txt', 'w')
+                file12.write(datalist[11])
+                file12.close()
+
+                print('刷新成功！')
+
     def send(self):
         encode_data = 'begin'.encode()
         self._sock.send(encode_data)
@@ -86,8 +118,8 @@ class SocketMathClient:
 
 
 while True:
-    server_ip, server_port = '127.0.0.1', 10001
+    server_ip, server_port = '127.0.0.1', 10004
     sc = SocketMathClient(server_ip, server_port)
     sc.start()
     sc.send()
-    time.sleep(5)
+    time.sleep(10)

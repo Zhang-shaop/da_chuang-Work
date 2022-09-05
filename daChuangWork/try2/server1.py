@@ -102,9 +102,45 @@ class SocketMathServer:
                     datalist.append(trigger6)
                     file6.close()
 
+                    file7 = open('E:/new dachuang/daChuangWork/server-data/1室电压.txt', 'r')
+                    trigger7 = file7.read()
+                    print('已传递：1室电压数据:' + trigger7)
+                    datalist.append(trigger7)
+                    file7.close()
+
+                    file8 = open('E:/new dachuang/daChuangWork/server-data/2室电压.txt', 'r')
+                    trigger8 = file8.read()
+                    print('已传递：2室电压数据:' + trigger8)
+                    datalist.append(trigger8)
+                    file8.close()
+
+                    file9 = open('E:/new dachuang/daChuangWork/server-data/3室电压.txt', 'r')
+                    trigger9 = file9.read()
+                    print('已传递：3室电压数据:' + trigger9)
+                    datalist.append(trigger9)
+                    file9.close()
+
+                    file10 = open('E:/new dachuang/daChuangWork/server-data/4室电压.txt', 'r')
+                    trigger10 = file10.read()
+                    print('已传递：4室电压数据:' + trigger10)
+                    datalist.append(trigger10)
+                    file10.close()
+
+                    file11 = open('E:/new dachuang/daChuangWork/server-data/5室电压.txt', 'r')
+                    trigger11 = file11.read()
+                    print('已传递：5室电压数据:' + trigger11)
+                    datalist.append(trigger11)
+                    file11.close()
+
+                    file12 = open('E:/new dachuang/daChuangWork/server-data/6室电压.txt', 'r')
+                    trigger12 = file12.read()
+                    print('已传递：6室电压数据:' + trigger12)
+                    datalist.append(trigger12)
+                    file12.close()
+
                     datastr = '*'.join(datalist)
                     c_sock.send(datastr.encode())
-                    time.sleep(5)
+                    time.sleep(10)
 
     def stop(self):
         self._event.set()
@@ -115,7 +151,7 @@ class SocketMathServer:
 
 
 if __name__ == '__main__':
-    addr = '127.0.0.1', 10000
+    addr = '127.0.0.1', 10003
     s1 = SocketMathServer(*addr)
     s1.start()
 
