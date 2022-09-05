@@ -1,18 +1,19 @@
 #引入对应文件中的类
-from daChuangWork import *
-from win1 import *
+from trydaChuangWork import *
+from trywin1 import *
 
 #引入对应的库
 from PyQt5 import QtCore, QtGui, QtWidgets
-import sys
 from PyQt5.QtWidgets import QApplication, QMainWindow
 from functools import partial
 import PyQt5.QtCore
-from PyQt5 import QtCore, QtGui, QtWidgets
 import math
 from PyQt5.Qt import *
 import sys
+import logging
+import threading
 import socket
+import time
 
 #进入主函数
 if __name__ == '__main__':
@@ -32,6 +33,8 @@ if __name__ == '__main__':
     ui1.setupUi(MainWindow1)
     ui1.pushButton.clicked.connect(partial(MainWindow.show, ))
     ui1.pushButton.clicked.connect(partial(MainWindow1.close, ))
+
+#    MainWindow1.after(10000,MainWindow1.refresh_data)  # 这里的10000单位为毫秒
 
 # 2室电压
     MainWindow2 = QMainWindow()
@@ -141,5 +144,5 @@ if __name__ == '__main__':
     ui.actionjiemian.triggered.connect(partial(MainWindow11.show, ))
     ui.actionjiemian.triggered.connect(partial(MainWindow.close, ))
 
-#退出程序
+   #退出程序
     sys.exit(app.exec_())
