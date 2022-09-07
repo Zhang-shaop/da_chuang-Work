@@ -1,5 +1,6 @@
 import random
 import time
+
 while True:
     file1 = open('E:/new dachuang/daChuangWork2/server-data/总电压.txt', 'w')
     file1.write(format(100*random.random(),'.2f'))
