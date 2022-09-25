@@ -56,7 +56,7 @@ class Ui_MainWindow(object):
         self.label_3.setFont(font)
         self.label_3.setObjectName("label_3")
 
- #氢槽温度
+#氢槽温度
         self.lineEdit = QtWidgets.QLineEdit(self.centralwidget)
         self.lineEdit.setGeometry(QtCore.QRect(30, 160, 113, 31))
         self.lineEdit.setObjectName("lineEdit")
@@ -142,6 +142,7 @@ class Ui_MainWindow(object):
         self.dateTimeEdit = QtWidgets.QDateTimeEdit(self.centralwidget)
         self.dateTimeEdit.setGeometry(QtCore.QRect(600, 520, 194, 22))
         self.dateTimeEdit.setObjectName("dateTimeEdit")
+
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 28))

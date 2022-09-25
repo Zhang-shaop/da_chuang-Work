@@ -36,6 +36,7 @@ class Ui_MainWindow(object):
         font.setWeight(75)
         self.label.setFont(font)
         self.label.setObjectName("label")
+
         self.label_2 = QtWidgets.QLabel(self.centralwidget)
         self.label_2.setGeometry(QtCore.QRect(40, 130, 101, 21))
         font = QtGui.QFont()
@@ -45,6 +46,7 @@ class Ui_MainWindow(object):
         font.setWeight(75)
         self.label_2.setFont(font)
         self.label_2.setObjectName("label_2")
+
         self.label_3 = QtWidgets.QLabel(self.centralwidget)
         self.label_3.setGeometry(QtCore.QRect(40, 220, 91, 21))
         font = QtGui.QFont()
@@ -55,7 +57,7 @@ class Ui_MainWindow(object):
         self.label_3.setFont(font)
         self.label_3.setObjectName("label_3")
 
- #氢槽温度
+#氢槽温度
         self.lineEdit = QtWidgets.QLineEdit(self.centralwidget)
         self.lineEdit.setGeometry(QtCore.QRect(30, 160, 113, 31))
         self.lineEdit.setObjectName("lineEdit")
@@ -80,6 +82,7 @@ class Ui_MainWindow(object):
         font.setWeight(75)
         self.label_4.setFont(font)
         self.label_4.setObjectName("label_4")
+
         self.label_5 = QtWidgets.QLabel(self.centralwidget)
         self.label_5.setGeometry(QtCore.QRect(40, 390, 101, 31))
         font = QtGui.QFont()
@@ -146,21 +149,31 @@ class Ui_MainWindow(object):
         self.label_6 = QtWidgets.QLabel(self.centralwidget)
         self.label_6.setGeometry(QtCore.QRect(320, 490, 141, 20))
         self.label_6.setObjectName("label_6")
+
         self.dateTimeEdit = QtWidgets.QDateTimeEdit(self.centralwidget)
         self.dateTimeEdit.setGeometry(QtCore.QRect(600, 520, 194, 22))
         self.dateTimeEdit.setObjectName("dateTimeEdit")
+
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 28))
         self.menubar.setObjectName("menubar")
+
         self.menu = QtWidgets.QMenu(self.menubar)
         self.menu.setObjectName("menu")
+
         self.menu_2 = QtWidgets.QMenu(self.menubar)
         self.menu_2.setObjectName("menu_2")
+
+        self.menu_3 = QtWidgets.QMenu(self.menubar) #####新增部分
+        self.menu_3.setObjectName("menu_3") #####
+
         MainWindow.setMenuBar(self.menubar)
+
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
         MainWindow.setStatusBar(self.statusbar)
+
         self.actionHelp = QtWidgets.QAction(MainWindow)
         self.actionHelp.setObjectName("actionHelp")
         self.actionguan = QtWidgets.QAction(MainWindow)
@@ -183,6 +196,10 @@ class Ui_MainWindow(object):
         self.actionzong.setObjectName("actionzong")
         self.actiondianliu = QtWidgets.QAction(MainWindow)
         self.actiondianliu.setObjectName("actiondianliu")
+        self.actionshowdata = QtWidgets.QAction(MainWindow) #####
+        self.actionshowdata.setObjectName("actionshowdata")     #####
+
+
         self.menu.addAction(self.actionHelp)
         self.menu.addAction(self.actionguan)
         self.menu.addAction(self.actionjiemian)
@@ -194,8 +211,11 @@ class Ui_MainWindow(object):
         self.menu_2.addAction(self.action6shi)
         self.menu_2.addAction(self.actionzong)
         self.menu_2.addAction(self.actiondianliu)
+        self.menu_3.addAction(self.actionshowdata) #####
+
         self.menubar.addAction(self.menu.menuAction())
         self.menubar.addAction(self.menu_2.menuAction())
+        self.menubar.addAction(self.menu_3.menuAction()) #####
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
@@ -221,6 +241,7 @@ class Ui_MainWindow(object):
         self.label_6.setText(_translate("MainWindow", "电解水完成度："))
         self.menu.setTitle(_translate("MainWindow", "帮助"))
         self.menu_2.setTitle(_translate("MainWindow", "数据查询"))
+        self.menu_3.setTitle(_translate("MainWindow", "数据分析")) #####
         self.actionHelp.setText(_translate("MainWindow", "数据说明"))
         self.actionguan.setText(_translate("MainWindow", "关于团队"))
         self.actionjiemian.setText(_translate("MainWindow", "电解水技术原理"))
@@ -232,6 +253,8 @@ class Ui_MainWindow(object):
         self.action6shi.setText(_translate("MainWindow", "6室电压"))
         self.actionzong.setText(_translate("MainWindow", "总电压"))
         self.actiondianliu.setText(_translate("MainWindow", "总电流"))
+        self.actionshowdata.setText(_translate("MainWindow", "理论模拟值"))  #####
+
 
         self.textBrowser.setHtml(_translate("MainWindow",
                                         "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"

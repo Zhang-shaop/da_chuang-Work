@@ -13,6 +13,7 @@ import math
 from PyQt5.Qt import *
 import sys
 import socket
+import try_canvas1
 
 #进入主函数
 if __name__ == '__main__':
@@ -100,7 +101,13 @@ if __name__ == '__main__':
     ui11.pushButton.clicked.connect(partial(MainWindow.show, ))
     ui11.pushButton.clicked.connect(partial(MainWindow11.close, ))
 
- #主菜单的槽与信号
+    MainWindow12 = QtWidgets.QMainWindow()  #####
+    ex = try_canvas1.Ui_MainWindow()
+    ex.setupUi(MainWindow12)
+    ex.pushButton.clicked.connect(partial(MainWindow.show, ))
+    ex.pushButton.clicked.connect(partial(MainWindow12.close, ))
+
+    #主菜单的槽与信号
     ui.pushButton.clicked.connect(partial(MainWindow1.show, ))
     ui.pushButton.clicked.connect(partial(MainWindow.close, ))
     ui.pushButton_2.clicked.connect(partial(MainWindow2.show, ))
@@ -141,5 +148,7 @@ if __name__ == '__main__':
     ui.actionjiemian.triggered.connect(partial(MainWindow11.show, ))
     ui.actionjiemian.triggered.connect(partial(MainWindow.close, ))
 
+    ui.actionshowdata.triggered.connect(partial(MainWindow12.show, )) #####
+    ui.actionshowdata.triggered.connect(partial(MainWindow.close, ))   #####
 #退出程序
     sys.exit(app.exec_())
