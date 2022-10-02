@@ -85,7 +85,7 @@ class Ui_Form(object):
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Form", "Form"))
+        Form.setWindowTitle(_translate("Form", "1室电压"))
         self.pushButton.setText(_translate("Form", "返回主页"))
         self.label.setText(_translate("Form", "1室电压："))
         self.label_2.setText(_translate("Form", "安全状态："))
@@ -161,7 +161,7 @@ class Ui_Form2(object):
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Form", "Form"))
+        Form.setWindowTitle(_translate("Form", "2室电压"))
         self.pushButton.setText(_translate("Form", "返回主页"))
         self.label.setText(_translate("Form", "2室电压："))
         self.label_2.setText(_translate("Form", "安全状态："))
@@ -236,7 +236,7 @@ class Ui_Form3(object):
 
      def retranslateUi(self, Form):
          _translate = QtCore.QCoreApplication.translate
-         Form.setWindowTitle(_translate("Form", "Form"))
+         Form.setWindowTitle(_translate("Form", "3室电压"))
          self.pushButton.setText(_translate("Form", "返回主页"))
          self.label.setText(_translate("Form", "3室电压："))
          self.label_2.setText(_translate("Form", "安全状态："))
@@ -311,7 +311,7 @@ class Ui_Form4(object):
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Form", "Form"))
+        Form.setWindowTitle(_translate("Form", "4室电压"))
         self.pushButton.setText(_translate("Form", "返回主页"))
         self.label.setText(_translate("Form", "4室电压："))
         self.label_2.setText(_translate("Form", "安全状态："))
@@ -385,7 +385,7 @@ class Ui_Form5(object):
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Form", "Form"))
+        Form.setWindowTitle(_translate("Form", "5室电压"))
         self.pushButton.setText(_translate("Form", "返回主页"))
         self.label.setText(_translate("Form", "5室电压："))
         self.label_2.setText(_translate("Form", "安全状态："))
@@ -460,7 +460,7 @@ class Ui_Form6(object):
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Form", "Form"))
+        Form.setWindowTitle(_translate("Form", "6室电压"))
         self.pushButton.setText(_translate("Form", "返回主页"))
         self.label.setText(_translate("Form", "6室电压："))
         self.label_2.setText(_translate("Form", "安全状态："))
@@ -534,7 +534,7 @@ class Ui_Form7(object):
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Form", "Form"))
+        Form.setWindowTitle(_translate("Form", "总电压"))
         self.pushButton.setText(_translate("Form", "返回主页"))
         self.label.setText(_translate("Form", "总电压："))
         self.label_2.setText(_translate("Form", "安全状态："))
@@ -607,7 +607,7 @@ class Ui_Form8(object):
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Form", "Form"))
+        Form.setWindowTitle(_translate("Form", "总电流"))
         self.pushButton.setText(_translate("Form", "返回主页"))
         self.label.setText(_translate("Form", "总电流："))
         self.label_2.setText(_translate("Form", "安全状态："))
@@ -640,7 +640,7 @@ class Ui_Form9(object):
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Form", "Form"))
+        Form.setWindowTitle(_translate("Form", "数据说明"))
         self.pushButton.setText(_translate("Form", "返回主页"))
         self.label.setText(_translate("Form", "数据说明：xxxxxxxxxxx\n"
                                               "xxxxxxxxxxxxxx"))
@@ -673,7 +673,7 @@ class Ui_Form10(object):
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Form", "Form"))
+        Form.setWindowTitle(_translate("Form", "团队介绍"))
         self.pushButton.setText(_translate("Form", "返回主页"))
         self.label.setText(_translate("Form", "团队简介："))
 
@@ -705,6 +705,6 @@ class Ui_Form11(object):
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Form", "Form"))
+        Form.setWindowTitle(_translate("Form", "技术说明"))
         self.pushButton.setText(_translate("Form", "返回主页"))
         self.label.setText(_translate("Form", "电解水技术原理："))

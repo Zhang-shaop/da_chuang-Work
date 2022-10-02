@@ -220,7 +220,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "电解水孪生数据检测系统"))
         self.label.setText(_translate("MainWindow", "电解水孪生数据检测系统"))
         self.label_2.setText(_translate("MainWindow", "氢槽温度："))
         self.label_3.setText(_translate("MainWindow", "氧槽温度："))

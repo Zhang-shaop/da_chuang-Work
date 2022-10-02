@@ -1,19 +1,14 @@
 #引入对应文件中的类
 from daChuangWork import *
 from win1 import *
+import try_canvas1
 
 #引入对应的库
-from PyQt5 import QtCore, QtGui, QtWidgets
-import sys
-from PyQt5.QtWidgets import QApplication, QMainWindow
 from functools import partial
-import PyQt5.QtCore
-from PyQt5 import QtCore, QtGui, QtWidgets
-import math
+from PyQt5 import QtWidgets
 from PyQt5.Qt import *
 import sys
-import socket
-import try_canvas1
+
 
 #进入主函数
 if __name__ == '__main__':
@@ -55,21 +50,21 @@ if __name__ == '__main__':
     ui4.pushButton.clicked.connect(partial(MainWindow.show, ))
     ui4.pushButton.clicked.connect(partial(MainWindow4.close, ))
 
- # 5室电压
+# 5室电压
     MainWindow5 = QMainWindow()
     ui5 = Ui_Form5()
     ui5.setupUi(MainWindow5)
     ui5.pushButton.clicked.connect(partial(MainWindow.show, ))
     ui5.pushButton.clicked.connect(partial(MainWindow5.close, ))
 
- # 6室电压
+# 6室电压
     MainWindow6= QMainWindow()
     ui6 = Ui_Form6()
     ui6.setupUi(MainWindow6)
     ui6.pushButton.clicked.connect(partial(MainWindow.show, ))
     ui6.pushButton.clicked.connect(partial(MainWindow6.close, ))
 
- # 总电压
+# 总电压
     MainWindow7 = QMainWindow()
     ui7 = Ui_Form7()
     ui7.setupUi(MainWindow7)
@@ -101,13 +96,14 @@ if __name__ == '__main__':
     ui11.pushButton.clicked.connect(partial(MainWindow.show, ))
     ui11.pushButton.clicked.connect(partial(MainWindow11.close, ))
 
+#新增的数据模拟部分
     MainWindow12 = QtWidgets.QMainWindow()  #####
-    ex = try_canvas1.Ui_MainWindow()
+    ex = try_canvas1.Ui_MainWindow0()
     ex.setupUi(MainWindow12)
     ex.pushButton.clicked.connect(partial(MainWindow.show, ))
     ex.pushButton.clicked.connect(partial(MainWindow12.close, ))
 
-    #主菜单的槽与信号
+#主菜单的槽与信号
     ui.pushButton.clicked.connect(partial(MainWindow1.show, ))
     ui.pushButton.clicked.connect(partial(MainWindow.close, ))
     ui.pushButton_2.clicked.connect(partial(MainWindow2.show, ))

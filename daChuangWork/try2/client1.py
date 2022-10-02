@@ -12,7 +12,6 @@ import time
 FORMAT = '%(asctime)s %(threadName)s %(thread)d %(message)s)'
 logging.basicConfig(format=FORMAT, level=logging.INFO)
 
-
 class SocketMathClient:
     def __init__(self, ip_addr, port_num):
         self.addr = ip_addr, port_num
