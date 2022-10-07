@@ -12,6 +12,7 @@ from matplotlib.figure import Figure
 from pylab import mpl
 
 list0=[]
+
 #最基本的画布结构定义，所有的画布的原型。具体的修改在def compute_initial_figure(self)中修改
 class MyMplCanvas(FigureCanvas):  # 画布基类
     """这是一个窗口部件，即QWidget（当然也是FigureCanvasAgg）"""
@@ -213,12 +214,11 @@ class Ui_MainWindow0(object):
 
     def update(self):
         file1 = open('E:/new dachuang/daChuangWork/data/氢槽温度.txt', 'r')
-
-        #tt=str(file1.read())  #时刻注意数据类型的问题
-        #ss = format(1.1763 * 0.000001 * tt * tt - 2.32 * 0.0001 * tt + 0.0172,'.2f')
-        self.lineEdit_2.setText(file1.read())
-        self.lineEdit_1.setText(file1.read())
-        #为什么只能运行第一个？不能显示第二个？？？第二个不能填任何值？
+        tt=float(file1.read())  #时刻注意数据类型的问题
+        ss = format(1.1763 * 0.000001 * tt * tt - 2.32 * 0.0001 * tt + 0.0172, '.4f')
+        self.lineEdit_1.setText(str(tt))
+        self.lineEdit_2.setText(str(ss))
+        #为什么只能运行第一个？不能显示第二个？？？第二个不能填任何值？文件读取问题。
         file1.close()
 
 
