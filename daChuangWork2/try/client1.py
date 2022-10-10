@@ -119,7 +119,7 @@ class SocketMathClient:
 
 
 while True:
-    server_ip, server_port = '127.0.0.1', 10007
+    server_ip, server_port = '127.0.0.1', 10008
     sc = SocketMathClient(server_ip, server_port)
     sc.start()
     sc.send()

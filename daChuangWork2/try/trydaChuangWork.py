@@ -177,6 +177,9 @@ class Ui_MainWindow(object):
         self.actionzong.setObjectName("actionzong")
         self.actiondianliu = QtWidgets.QAction(MainWindow)
         self.actiondianliu.setObjectName("actiondianliu")
+        self.actionshowdata = QtWidgets.QAction(MainWindow)  #####
+        self.actionshowdata.setObjectName("actionshowdata")  #####
+
         self.menu.addAction(self.actionHelp)
         self.menu.addAction(self.actionguan)
         self.menu.addAction(self.actionjiemian)
@@ -188,8 +191,13 @@ class Ui_MainWindow(object):
         self.menu_2.addAction(self.action6shi)
         self.menu_2.addAction(self.actionzong)
         self.menu_2.addAction(self.actiondianliu)
+        self.menu_3 = QtWidgets.QMenu(self.menubar)  #####新增部分
+        self.menu_3.setObjectName("menu_3")  #####
+        MainWindow.setMenuBar(self.menubar)
         self.menubar.addAction(self.menu.menuAction())
         self.menubar.addAction(self.menu_2.menuAction())
+        self.menu_3.addAction(self.actionshowdata)  #####
+        self.menubar.addAction(self.menu_3.menuAction())  #####
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
@@ -248,6 +256,9 @@ class Ui_MainWindow(object):
         self.action6shi.setText(_translate("MainWindow", "6室电压"))
         self.actionzong.setText(_translate("MainWindow", "总电压"))
         self.actiondianliu.setText(_translate("MainWindow", "总电流"))
+
+        self.menu_3.setTitle(_translate("MainWindow", "数据分析"))  #####
+        self.actionshowdata.setText(_translate("MainWindow", "理论模拟值"))  #####
 
         self.textBrowser.setHtml(_translate("MainWindow",
                                         "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"

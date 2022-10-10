@@ -1,6 +1,7 @@
 #引入对应文件中的类
 from trydaChuangWork import *
 from trywin1 import *
+import try_canvas1
 
 #引入对应的库
 from PyQt5 import QtCore, QtGui, QtWidgets
@@ -103,6 +104,13 @@ if __name__ == '__main__':
     ui11.pushButton.clicked.connect(partial(MainWindow.show, ))
     ui11.pushButton.clicked.connect(partial(MainWindow11.close, ))
 
+    # 数据模拟部分
+    MainWindow12 = QtWidgets.QMainWindow()
+    ex = try_canvas1.Ui_MainWindow0()
+    ex.setupUi(MainWindow12)
+    ex.pushButton.clicked.connect(partial(MainWindow.show, ))
+    ex.pushButton.clicked.connect(partial(MainWindow12.close, ))
+
  #主菜单的槽与信号
     ui.pushButton.clicked.connect(partial(MainWindow1.show, ))
     ui.pushButton.clicked.connect(partial(MainWindow.close, ))
@@ -144,5 +152,7 @@ if __name__ == '__main__':
     ui.actionjiemian.triggered.connect(partial(MainWindow11.show, ))
     ui.actionjiemian.triggered.connect(partial(MainWindow.close, ))
 
+    ui.actionshowdata.triggered.connect(partial(MainWindow12.show, ))
+    ui.actionshowdata.triggered.connect(partial(MainWindow.close, ))
    #退出程序
     sys.exit(app.exec_())

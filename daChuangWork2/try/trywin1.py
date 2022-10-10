@@ -642,8 +642,11 @@ class Ui_Form9(object):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "数据说明"))
         self.pushButton.setText(_translate("Form", "返回主页"))
-        self.label.setText(_translate("Form", "数据说明：xxxxxxxxxxx\n"
-                                              "xxxxxxxxxxxxxx"))
+        self.label.setText(_translate("Form", "\n\n\n\n\n\n数据说明：\n氢槽温度：氢槽热平衡后温度。\n氧槽温度：氧槽热平衡后温度。\n"
+                                              "碱液流量：持续输入输出的交换碱液流量。\n碱液温度:   碱液预热后流入的温度。\n"
+                                              "n槽室电压：串联的第n个电解槽的电解电压。\n总电压：加载在主电极两端的电压。\n"
+                                              "总电流：电解装置工作时的主极电流。"
+                                      ))
 
 class Ui_Form10(object):
     def setupUi(self, Form):
@@ -675,7 +678,10 @@ class Ui_Form10(object):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "团队介绍"))
         self.pushButton.setText(_translate("Form", "返回主页"))
-        self.label.setText(_translate("Form", "团队简介："))
+        self.label.setText(_translate("Form", "\n\n\n\n团队简介：\n"
+                                              "队长：曹瑜，负责组织开发进度，文献阅读整理，路线规划。\n"
+                                              "图像识别技术开发：刘建胜，王敬修\n"
+                                              "展示页面设计及部分功能设计：张劭鹏，孙钰昊"))
 
 class Ui_Form11(object):
     def setupUi(self, Form):
@@ -707,4 +713,10 @@ class Ui_Form11(object):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "技术说明"))
         self.pushButton.setText(_translate("Form", "返回主页"))
-        self.label.setText(_translate("Form", "电解水技术原理："))
+        self.label.setText(_translate("Form", "\n\n\n\n电解水技术原理：\n"
+                                              "碱性电解水技术是以KOH、NaOH水溶液为电解质，如采用石棉布\n"
+                                              "等作为隔膜，在直流电的作用下，将水电解成氢气和氧气。在阴\n"
+                                              "极，水分子被分解为氢离子和氢氧根离子，氢离子得到电子生成\n"
+                                              "氢原子，并进一步生成氢分子；氢氧根离子则在阴、阳极之间的\n"
+                                              "电场力作用下穿过多孔的横膈膜，到达阳极，在阳极失去电子生\n"
+                                              "成水分子和氧分子。"))
