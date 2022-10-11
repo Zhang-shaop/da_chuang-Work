@@ -230,8 +230,8 @@ class Ui_MainWindow0(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "理论数值模拟"))
         self.pushButton.setText(_translate("pushButton", "返回主页"))
-        self.label1.setText(_translate("label1", "槽室温度:"))
-        self.label2.setText(_translate("label2", "电解槽等效阻抗:"))
+        self.label1.setText(_translate("label1", "槽室温度（摄氏度）:"))
+        self.label2.setText(_translate("label2", "电解槽等效阻抗（欧姆）:"))
 
 #自己定义的第2个界面，有限元模型展示界面。
 class Ui_MainWindow1(object):
@@ -291,8 +291,8 @@ class Ui_MainWindow1(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "有限元模型展示"))
         self.pushButton.setText(_translate("pushButton", "返回主页"))
-        self.label0.setText(_translate("pushButton", "有限元模型展示："))
-        self.label2.setText(_translate("pushButton", "装配实物展示："))
+        self.label0.setText(_translate("pushButton", "有限元模型展示:"))
+        self.label2.setText(_translate("pushButton", "装配实物展示:"))
 
         #插入图片2
         self.cover_img = os.path.abspath('E:/new dachuang/daChuangWork2/logo/pic2.png')
@@ -306,8 +306,166 @@ class Ui_MainWindow1(object):
         self.label3.setPixmap(self.image1)
         self.label3.setScaledContents(True)
 
-#自己定义的第三个界面。
+#自己定义的第三个界面：寿命预测技术
 class Ui_MainWindow2(object):
+
+    def setupUi(self, MainWindow):
+        MainWindow.setObjectName("MainWindow") #MainWindow
+        MainWindow.resize(1200,600)
+        self.centralWidget = QtWidgets.QWidget(MainWindow)
+        self.centralWidget.setObjectName("centralWidget")
+
+        #网格线布局
+        self.gridLayout = QtWidgets.QGridLayout(self.centralWidget)
+        self.gridLayout.setContentsMargins(11, 11, 11, 11)
+        self.gridLayout.setSpacing(6)
+        self.gridLayout.setObjectName("gridLayout")
+
+        #垂直布局0
+        self.verticallayout = QtWidgets.QVBoxLayout()
+        self.verticallayout.setContentsMargins(11, 11, 11, 11)
+        self.verticallayout.setSpacing(6)
+        self.verticallayout.setObjectName("verticallayout")
+        #水平线布局0
+        self.horizontalLayout = QtWidgets.QHBoxLayout()
+        self.horizontalLayout.setContentsMargins(11, 11, 11, 11)
+        self.horizontalLayout.setSpacing(6)
+        self.horizontalLayout.setObjectName("horizontalLayout")
+
+        # 垂直布局1
+        self.verticallayout1 = QtWidgets.QVBoxLayout()
+        self.verticallayout1.setContentsMargins(11, 11, 11, 11)
+        self.verticallayout1.setSpacing(6)
+        self.verticallayout1.setObjectName("verticallayout")
+        # 水平线布局1
+        self.horizontalLayout1 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout1.setContentsMargins(11, 11, 11, 11)
+        self.horizontalLayout1.setSpacing(6)
+        self.horizontalLayout1.setObjectName("horizontalLayout")
+
+        # 垂直布局2
+        self.verticallayout2 = QtWidgets.QVBoxLayout()
+        self.verticallayout2.setContentsMargins(11, 11, 11, 11)
+        self.verticallayout2.setSpacing(6)
+        self.verticallayout2.setObjectName("verticallayout")
+        # 水平线布局2
+        self.horizontalLayout2 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout2.setContentsMargins(11, 11, 11, 11)
+        self.horizontalLayout2.setSpacing(6)
+        self.horizontalLayout2.setObjectName("horizontalLayout")
+
+        # 垂直布局3
+        self.verticallayout3 = QtWidgets.QVBoxLayout()
+        self.verticallayout3.setContentsMargins(11, 11, 11, 11)
+        self.verticallayout3.setSpacing(6)
+        self.verticallayout3.setObjectName("verticallayout")
+        # 水平线布局3
+        self.horizontalLayout3 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout3.setContentsMargins(11, 11, 11, 11)
+        self.horizontalLayout3.setSpacing(6)
+        self.horizontalLayout3.setObjectName("horizontalLayout")
+
+        #增加数据显示部分
+        self.main_widget2 = QWidget()
+        self.label1 = QtWidgets.QLabel(self.main_widget2)
+        self.lineEdit_1 = QtWidgets.QLineEdit(self.main_widget2)
+        self.label2 = QtWidgets.QLabel(self.main_widget2)
+        self.lineEdit_2 = QtWidgets.QLineEdit(self.main_widget2)
+        self.horizontalLayout1.addWidget(self.label1)
+        self.horizontalLayout1.addWidget(self.lineEdit_1)
+        self.horizontalLayout1.addWidget(self.label2)
+        self.horizontalLayout1.addWidget(self.lineEdit_2)
+        self.verticallayout1.addLayout(self.horizontalLayout1)
+        self.gridLayout.addLayout(self.verticallayout1,0,0,1,3)
+
+        #增加数据显示部分2
+        self.main_widget3 = QWidget()
+        self.label3 = QtWidgets.QLabel(self.main_widget3)
+        self.lineEdit_3 = QtWidgets.QLineEdit(self.main_widget3)
+        self.label4 = QtWidgets.QLabel(self.main_widget3)
+        self.lineEdit_4 = QtWidgets.QLineEdit(self.main_widget3)
+        self.horizontalLayout3.addWidget(self.label3)
+        self.horizontalLayout3.addWidget(self.lineEdit_3)
+        self.horizontalLayout3.addWidget(self.label4)
+        self.horizontalLayout3.addWidget(self.lineEdit_4)
+        self.verticallayout3.addLayout(self.horizontalLayout3)
+        self.gridLayout.addLayout(self.verticallayout3,1,0,1,3)
+
+        #将表格绘制出来！！！！这是一个重要的部分。
+        self.main_widget = QWidget()
+        sc = MyStaticMplCanvas(self.main_widget, width=5, height=4, dpi=100)
+        self.horizontalLayout.addWidget(sc)
+        #在垂直布局基础上增加这个水平布局。
+        self.verticallayout.addLayout(self.horizontalLayout)
+        #把垂直布局增加到网格线布局
+        self.gridLayout.addLayout(self.verticallayout, 2, 0, 4, 3)
+        MainWindow.setCentralWidget(self.centralWidget)
+
+        self.main_widget1 = QWidget()
+        self.pushButton1 = QtWidgets.QPushButton(self.main_widget1)
+        self.pushButton = QtWidgets.QPushButton(self.main_widget1)
+
+       # self.horizontalLayout.addWidget(self.pushButton)
+       #self.verticallayout.addLayout(self.horizontalLayout)
+        self.verticallayout2.addWidget(self.pushButton1)
+        self.verticallayout2.addWidget(self.pushButton)
+        self.horizontalLayout2.addLayout(self.verticallayout2)
+        # 把垂直布局增加到网格线布局
+        self.gridLayout.addLayout(self.horizontalLayout2, 6, 0, 1, 3)
+        MainWindow.setCentralWidget(self.centralWidget)
+        #设置字体
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setItalic(True)
+        font.setWeight(75)
+        #对于按键设置字体
+        self.pushButton.setFont(font)
+        self.pushButton.setObjectName("pushButton")
+        self.pushButton1.setFont(font)
+        self.pushButton1.setObjectName("pushButton1")
+        self.label1.setFont(font)
+        self.label1.setObjectName("label1")
+        self.label2.setFont(font)
+        self.label2.setObjectName("label2")
+        self.label3.setFont(font)
+        self.label3.setObjectName("label3")
+        self.label4.setFont(font)
+        self.label4.setObjectName("label4")
+
+        self.retranslateUi(MainWindow)
+        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+
+        self.Mytimer()
+    def Mytimer(self):
+        timer = QTimer(self.centralWidget)
+        timer.timeout.connect(self.update)
+        timer.start(100)
+
+    def update(self):
+        file1 = open('E:/new dachuang/daChuangWork/data/总电压.txt', 'r')
+        tt=float(file1.read())  #时刻注意数据类型的问题
+        ss = format(1.1763 * 0.000001 * tt * tt - 2.32 * 0.0001 * tt + 0.0172, '.4f')
+        self.lineEdit_3.setText(str(tt))
+        self.lineEdit_4.setText(str(ss))
+        #为什么只能运行第一个？不能显示第二个？？？第二个不能填任何值？文件读取问题。
+        file1.close()
+
+
+    def retranslateUi(self, MainWindow):
+        _translate = QtCore.QCoreApplication.translate
+        MainWindow.setWindowTitle(_translate("MainWindow", "电气寿命预测"))
+        self.pushButton1.setText(_translate("pushButton1", "绘制曲线"))
+        self.pushButton.setText(_translate("pushButton", "返回主页"))
+        self.label1.setText(_translate("label1", "产氢速率（产氢电流）（安培）:"))
+        self.label2.setText(_translate("label2", "额定电压（伏）:"))
+        self.label3.setText(_translate("label3", "实际槽总电压（伏）:"))
+        self.label4.setText(_translate("label4", "预期电气寿命（hour）:"))
+
+
+#自己定义的第四个界面：实时数据刷新界面
+class Ui_MainWindow3(object):
 
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow") #MainWindow

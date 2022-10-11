@@ -118,6 +118,13 @@ if __name__ == '__main__':
     ex1.pushButton.clicked.connect(partial(MainWindow.show, ))
     ex1.pushButton.clicked.connect(partial(MainWindow13.close, ))
 
+    #电气寿命预测技术部分
+    MainWindow14 = QtWidgets.QMainWindow()
+    ex2 = try_canvas1.Ui_MainWindow2()
+    ex2.setupUi(MainWindow14)
+    ex2.pushButton.clicked.connect(partial(MainWindow.show, ))
+    ex2.pushButton.clicked.connect(partial(MainWindow14.close, ))
+
  #主菜单的槽与信号
     ui.pushButton.clicked.connect(partial(MainWindow1.show, ))
     ui.pushButton.clicked.connect(partial(MainWindow.close, ))
@@ -163,7 +170,8 @@ if __name__ == '__main__':
     ui.actionshowdata.triggered.connect(partial(MainWindow.close, ))
     ui.actionpic.triggered.connect(partial(MainWindow13.show, ))
     ui.actionpic.triggered.connect(partial(MainWindow.close, ))
-
+    ui.actionuselife.triggered.connect(partial(MainWindow14.show, ))
+    ui.actionuselife.triggered.connect(partial(MainWindow.close, ))
 
    #退出程序
     sys.exit(app.exec_())

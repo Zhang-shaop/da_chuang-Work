@@ -75,9 +75,9 @@ class Ui_Form(object):
         file1.close()
         # 设置状态
         file1_data = float(self.lineEdit.text())
-        if file1_data < 50 and file1_data > 0:
+        if file1_data < 6.0 and file1_data > 2.0:
             state = '安全'
-        elif file1_data > 50:
+        elif file1_data > 6.0:
             state = '危险'
         else:
             state = '数据异常'
@@ -151,9 +151,9 @@ class Ui_Form2(object):
         file1.close()
         # 设置状态
         file1_data = float(self.lineEdit.text())
-        if file1_data < 50 and file1_data > 0:
+        if file1_data < 6.0 and file1_data > 2.0:
             state = '安全'
-        elif file1_data > 50:
+        elif file1_data > 6.0:
             state = '危险'
         else:
                state = '数据异常'
@@ -226,9 +226,9 @@ class Ui_Form3(object):
          file1.close()
          # 设置状态
          file1_data = float(self.lineEdit.text())
-         if file1_data < 50 and file1_data > 0:
+         if file1_data < 6.0 and file1_data > 2.0:
              state = '安全'
-         elif file1_data > 50:
+         elif file1_data > 6.0:
              state = '危险'
          else:
              state = '数据异常'
@@ -301,9 +301,9 @@ class Ui_Form4(object):
         file1.close()
         # 设置状态
         file1_data = float(self.lineEdit.text())
-        if file1_data < 50 and file1_data > 0:
+        if file1_data < 6.0 and file1_data > 2.0:
             state = '安全'
-        elif file1_data > 50:
+        elif file1_data > 6.0:
             state = '危险'
         else:
             state = '数据异常'
@@ -375,9 +375,9 @@ class Ui_Form5(object):
         file1.close()
         # 设置状态
         file1_data = float(self.lineEdit.text())
-        if file1_data < 50 and file1_data > 0:
+        if file1_data < 6.0 and file1_data > 2.0:
             state = '安全'
-        elif file1_data > 50:
+        elif file1_data > 6.0:
             state = '危险'
         else:
             state = '数据异常'
@@ -450,9 +450,9 @@ class Ui_Form6(object):
         file1.close()
         # 设置状态
         file1_data = float(self.lineEdit.text())
-        if file1_data < 50 and file1_data > 0:
+        if file1_data < 6.0 and file1_data > 2.0:
             state = '安全'
-        elif file1_data > 50:
+        elif file1_data > 6.0:
             state = '危险'
         else:
             state = '数据异常'
@@ -524,9 +524,9 @@ class Ui_Form7(object):
         file1.close()
         # 设置状态
         file1_data = float(self.lineEdit.text())
-        if file1_data < 50 and file1_data > 0:
+        if file1_data < 60 and file1_data > 0:
             state = '安全'
-        elif file1_data > 50:
+        elif file1_data > 60:
             state = '危险'
         else:
             state = '数据异常'
@@ -597,9 +597,9 @@ class Ui_Form8(object):
         file1.close()
         # 设置状态
         file1_data = float(self.lineEdit.text())
-        if file1_data < 50 and file1_data > 0:
+        if file1_data < 2 and file1_data > 0:
             state = '安全'
-        elif file1_data > 50:
+        elif file1_data > 2:
             state = '危险'
         else:
             state = '数据异常'
