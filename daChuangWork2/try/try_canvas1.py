@@ -446,6 +446,10 @@ class Ui_MainWindow2(object):
     def update(self):
         file1 = open('E:/new dachuang/daChuangWork/data/总电压.txt', 'r')
         tt=float(file1.read())  #时刻注意数据类型的问题
+        tt=tt/6
+        #关于计算预期寿命的函数部分？？？
+        ####把这个补充起来，就好了！！！
+
         ss = format(1.1763 * 0.000001 * tt * tt - 2.32 * 0.0001 * tt + 0.0172, '.4f')
         self.lineEdit_3.setText(str(tt))
         self.lineEdit_4.setText(str(ss))
