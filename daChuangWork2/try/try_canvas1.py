@@ -108,6 +108,9 @@ class MyDynamicMplCanvas(MyMplCanvas):  # 单个画布
         self.axes.set_ylabel('1室电压（V）',fontproperties='SimHei')
         self.draw()
 
+
+
+#############开始正式界面定义
 #定义数据模拟界面的第一个页面：槽阻抗随槽温度的变化曲线绘制
 class Ui_MainWindow0(object):
 
@@ -229,8 +232,35 @@ class Ui_MainWindow0(object):
         self.label1.setText(_translate("label1", "槽室温度:"))
         self.label2.setText(_translate("label2", "电解槽等效阻抗:"))
 
-#自己定义的第二个界面。
+#自己定义的第2个界面，有限元模型展示界面。
 class Ui_MainWindow1(object):
+    def setupUi(self, MainWindow):
+        MainWindow.setObjectName("MainWindow") #MainWindow
+        MainWindow.resize(1200,600)
+        self.centralWidget = QtWidgets.QWidget(MainWindow)
+        self.centralWidget.setObjectName("centralWidget")
+
+        self.main_widget1 = QWidget()
+        self.pushButton = QtWidgets.QPushButton(self.main_widget1)
+        # 设置字体
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setItalic(True)
+        font.setWeight(75)
+        # 对于按键设置字体
+        self.pushButton.setFont(font)
+        self.pushButton.setObjectName("pushButton")
+
+    def retranslateUi(self, MainWindow):
+        _translate = QtCore.QCoreApplication.translate
+        MainWindow.setWindowTitle(_translate("MainWindow", "有限元模型展示"))
+        self.pushButton.setText(_translate("pushButton", "返回主页"))
+
+
+#自己定义的第三个界面。
+class Ui_MainWindow2(object):
 
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow") #MainWindow

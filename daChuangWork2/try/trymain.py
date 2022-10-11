@@ -111,6 +111,13 @@ if __name__ == '__main__':
     ex.pushButton.clicked.connect(partial(MainWindow.show, ))
     ex.pushButton.clicked.connect(partial(MainWindow12.close, ))
 
+    #有限元模型展示部分
+    MainWindow13 = QtWidgets.QMainWindow()
+    ex1 = try_canvas1.Ui_MainWindow1()
+    ex1.setupUi(MainWindow13)
+    ex1.pushButton.clicked.connect(partial(MainWindow.show, ))
+    ex1.pushButton.clicked.connect(partial(MainWindow13.close, ))
+
  #主菜单的槽与信号
     ui.pushButton.clicked.connect(partial(MainWindow1.show, ))
     ui.pushButton.clicked.connect(partial(MainWindow.close, ))
@@ -151,8 +158,12 @@ if __name__ == '__main__':
     ui.actionguan.triggered.connect(partial(MainWindow.close, ))
     ui.actionjiemian.triggered.connect(partial(MainWindow11.show, ))
     ui.actionjiemian.triggered.connect(partial(MainWindow.close, ))
-
+#附加界面
     ui.actionshowdata.triggered.connect(partial(MainWindow12.show, ))
     ui.actionshowdata.triggered.connect(partial(MainWindow.close, ))
+    ui.actionpic.triggered.connect(partial(MainWindow13.show, ))
+    ui.actionpic.triggered.connect(partial(MainWindow.close, ))
+
+
    #退出程序
     sys.exit(app.exec_())

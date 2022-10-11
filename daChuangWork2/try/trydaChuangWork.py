@@ -35,6 +35,7 @@ class Ui_MainWindow(object):
         font.setPointSize(20)
         font.setBold(True)
         font.setWeight(75)
+
         self.label.setFont(font)
         self.label.setObjectName("label")
         self.label_2 = QtWidgets.QLabel(self.centralwidget)
@@ -142,7 +143,7 @@ class Ui_MainWindow(object):
         self.dateTimeEdit = QtWidgets.QDateTimeEdit(self.centralwidget)
         self.dateTimeEdit.setGeometry(QtCore.QRect(600, 520, 194, 22))
         self.dateTimeEdit.setObjectName("dateTimeEdit")
-
+#菜单部分
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 28))
@@ -151,10 +152,14 @@ class Ui_MainWindow(object):
         self.menu.setObjectName("menu")
         self.menu_2 = QtWidgets.QMenu(self.menubar)
         self.menu_2.setObjectName("menu_2")
+        self.menu_3 = QtWidgets.QMenu(self.menubar)  #####新增部分
+        self.menu_3.setObjectName("menu_3")  #####
+
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
         MainWindow.setStatusBar(self.statusbar)
+
         self.actionHelp = QtWidgets.QAction(MainWindow)
         self.actionHelp.setObjectName("actionHelp")
         self.actionguan = QtWidgets.QAction(MainWindow)
@@ -179,6 +184,12 @@ class Ui_MainWindow(object):
         self.actiondianliu.setObjectName("actiondianliu")
         self.actionshowdata = QtWidgets.QAction(MainWindow)  #####
         self.actionshowdata.setObjectName("actionshowdata")  #####
+        self.actionupdatedata = QtWidgets.QAction(MainWindow)  #####
+        self.actionupdatedata.setObjectName("actionupdatedata")  #####
+        self.actionuselife = QtWidgets.QAction(MainWindow)  #####
+        self.actionuselife.setObjectName("actionuselife")  #####
+        self.actionpic = QtWidgets.QAction(MainWindow)  #####
+        self.actionpic.setObjectName("actionpic")  #####
 
         self.menu.addAction(self.actionHelp)
         self.menu.addAction(self.actionguan)
@@ -197,6 +208,10 @@ class Ui_MainWindow(object):
         self.menubar.addAction(self.menu.menuAction())
         self.menubar.addAction(self.menu_2.menuAction())
         self.menu_3.addAction(self.actionshowdata)  #####
+        self.menu_3.addAction(self.actionupdatedata)  #####
+        self.menu_3.addAction(self.actionuselife)  #####
+        self.menu_3.addAction(self.actionpic)  #####
+
         self.menubar.addAction(self.menu_3.menuAction())  #####
 
         self.retranslateUi(MainWindow)
@@ -245,6 +260,7 @@ class Ui_MainWindow(object):
         self.label_6.setText(_translate("MainWindow", "电解水完成度："))
         self.menu.setTitle(_translate("MainWindow", "帮助"))
         self.menu_2.setTitle(_translate("MainWindow", "数据查询"))
+
         self.actionHelp.setText(_translate("MainWindow", "数据说明"))
         self.actionguan.setText(_translate("MainWindow", "关于团队"))
         self.actionjiemian.setText(_translate("MainWindow", "电解水技术原理"))
@@ -259,6 +275,9 @@ class Ui_MainWindow(object):
 
         self.menu_3.setTitle(_translate("MainWindow", "数据分析"))  #####
         self.actionshowdata.setText(_translate("MainWindow", "理论模拟值"))  #####
+        self.actionupdatedata.setText(_translate("MainWindow", "数据实时刷新"))  #####
+        self.actionuselife.setText(_translate("MainWindow", "电气寿命预测"))  #####
+        self.actionpic.setText(_translate("MainWindow", "有限元模型展示"))  #####
 
         self.textBrowser.setHtml(_translate("MainWindow",
                                         "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
