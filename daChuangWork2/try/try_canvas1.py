@@ -10,6 +10,7 @@ from numpy import *
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.figure import Figure
 from pylab import mpl
+import os
 
 list0=[]
 
@@ -236,12 +237,42 @@ class Ui_MainWindow0(object):
 class Ui_MainWindow1(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow") #MainWindow
-        MainWindow.resize(1200,600)
+        MainWindow.resize(1000,800)
         self.centralWidget = QtWidgets.QWidget(MainWindow)
         self.centralWidget.setObjectName("centralWidget")
 
+        # 网格线布局
+        self.gridLayout = QtWidgets.QGridLayout(self.centralWidget)
+        self.gridLayout.setContentsMargins(11, 11, 11, 11)
+        self.gridLayout.setSpacing(6)
+        self.gridLayout.setObjectName("gridLayout")
+
+        # 垂直布局1
+        self.verticallayout1 = QtWidgets.QVBoxLayout()
+        self.verticallayout1.setContentsMargins(11, 11, 11, 11)
+        self.verticallayout1.setSpacing(6)
+        self.verticallayout1.setObjectName("verticallayout")
+
+       #把图片加入界面
+        self.main_widget = QWidget()
+        self.label0 = QtWidgets.QLabel(self.main_widget)
+        self.label1 = QtWidgets.QLabel(self.main_widget)
+        self.label2 = QtWidgets.QLabel(self.main_widget)
+        self.label3 = QtWidgets.QLabel(self.main_widget)
+
+        self.label1.setObjectName("label")
+
         self.main_widget1 = QWidget()
         self.pushButton = QtWidgets.QPushButton(self.main_widget1)
+
+        self.verticallayout1.addWidget(self.label0)
+        self.verticallayout1.addWidget(self.label1)
+        self.verticallayout1.addWidget(self.label2)
+        self.verticallayout1.addWidget(self.label3)
+        self.verticallayout1.addWidget(self.pushButton)
+        self.gridLayout.addLayout(self.verticallayout1,0,0,0,0)
+
+        MainWindow.setCentralWidget(self.centralWidget)
         # 设置字体
         font = QtGui.QFont()
         font.setFamily("Arial")
@@ -253,11 +284,27 @@ class Ui_MainWindow1(object):
         self.pushButton.setFont(font)
         self.pushButton.setObjectName("pushButton")
 
+        self.retranslateUi(MainWindow)
+        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "有限元模型展示"))
         self.pushButton.setText(_translate("pushButton", "返回主页"))
+        self.label0.setText(_translate("pushButton", "有限元模型展示："))
+        self.label2.setText(_translate("pushButton", "装配实物展示："))
 
+        #插入图片2
+        self.cover_img = os.path.abspath('E:/new dachuang/daChuangWork2/logo/pic2.png')
+        self.image0 = QtGui.QPixmap(self.cover_img).scaled(600, 400)
+        self.label1.setPixmap(self.image0)
+        self.label1.setScaledContents(True)
+
+        # 插入图片3
+        self.cover_img1 = os.path.abspath('E:/new dachuang/daChuangWork2/logo/pic3.jpg')
+        self.image1 = QtGui.QPixmap(self.cover_img1).scaled(600, 400)
+        self.label3.setPixmap(self.image1)
+        self.label3.setScaledContents(True)
 
 #自己定义的第三个界面。
 class Ui_MainWindow2(object):
