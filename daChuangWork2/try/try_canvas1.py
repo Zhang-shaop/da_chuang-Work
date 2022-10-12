@@ -18,6 +18,25 @@ list0 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
          0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
          0, 0 ,0, 0, 0, 0, 0, 0, 0, 0]
 
+list1 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+         0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+         0, 0 ,0, 0, 0, 0, 0, 0, 0, 0]
+
+list2 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+         0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+         0, 0 ,0, 0, 0, 0, 0, 0, 0, 0]
+
+list3 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+         0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+         0, 0 ,0, 0, 0, 0, 0, 0, 0, 0]
+
+list4 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+         0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+         0, 0 ,0, 0, 0, 0, 0, 0, 0, 0]
+
+list5 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+         0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+         0, 0 ,0, 0, 0, 0, 0, 0, 0, 0]
 #最基本的画布结构定义，所有的画布的原型。具体的修改在def compute_initial_figure(self)中修改
 class MyMplCanvas(FigureCanvas):  # 画布基类
     """这是一个窗口部件，即QWidget（当然也是FigureCanvasAgg）"""
@@ -127,23 +146,62 @@ class MyStaticMplCanvas2(MyMplCanvas):
 
     def update_data(self):
         file1 = open('E:/new dachuang/daChuangWork2/data/1室电压.txt', 'r')
-        listmem=float(file1.read())
+        listmem1=float(file1.read())
         file1.close()
-        list0.append(listmem)
+        list0.append(listmem1)
         del list0[0]
 
+        file2 = open('E:/new dachuang/daChuangWork2/data/2室电压.txt', 'r')
+        listmem2 = float(file2.read())
+        file2.close()
+        list1.append(listmem2)
+        del list1[0]
+
+        file3 = open('E:/new dachuang/daChuangWork2/data/3室电压.txt', 'r')
+        listmem3 = float(file3.read())
+        file3.close()
+        list2.append(listmem3)
+        del list2[0]
+
+        file4 = open('E:/new dachuang/daChuangWork2/data/4室电压.txt', 'r')
+        listmem4 = float(file4.read())
+        file4.close()
+        list3.append(listmem4)
+        del list3[0]
+
+        file5 = open('E:/new dachuang/daChuangWork2/data/5室电压.txt', 'r')
+        listmem5 = float(file5.read())
+        file5.close()
+        list4.append(listmem5)
+        del list4[0]
+
+        file6 = open('E:/new dachuang/daChuangWork2/data/6室电压.txt', 'r')
+        listmem6 = float(file6.read())
+        file6.close()
+        list5.append(listmem6)
+        del list5[0]
 
     def update_figure(self):
             self.axes.cla()  # 每次清空一次画布
             self.axes.plot([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,
                         21,22,23,24,25,26,27,28,29,30], list0, 'r')
+            self.axes.plot([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+                            21, 22, 23, 24, 25, 26, 27, 28, 29, 30], list1, 'g')
+            self.axes.plot([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+                            21, 22, 23, 24, 25, 26, 27, 28, 29, 30], list2, 'b')
+            self.axes.plot([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+                            21, 22, 23, 24, 25, 26, 27, 28, 29, 30], list3, 'c')
+            self.axes.plot([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+                            21, 22, 23, 24, 25, 26, 27, 28, 29, 30], list4, 'y')
+            self.axes.plot([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+                            21, 22, 23, 24, 25, 26, 27, 28, 29, 30], list5, 'm')
             self.axes.set_xlabel('时间（10s）', fontproperties='SimHei')
             self.axes.set_ylabel('电压（伏特）', fontproperties='SimHei')
             self.axes.set_title('各槽室电压随时间变化关系', fontproperties='SimHei')
             self.draw()
 
 
-#每秒自动刷新的图像
+#每秒自动刷新的图像，模板（未使用）
 class MyControlMplCanvas(MyMplCanvas):  # 单个画布
     """动态画布：每秒自动更新，更换一条折线。"""
 
@@ -165,46 +223,6 @@ class MyControlMplCanvas(MyMplCanvas):  # 单个画布
         self.axes.set_xlabel('x')
         self.axes.set_ylabel('y')
         self.draw()
-
-#自己尝试绘制动态画布的函数，关键在于数组list0
-class MyDynamicMplCanvas(MyMplCanvas):  # 单个画布
-    """动态画布：每秒自动更新，更换一条折线。"""
-
-    def __init__(self, *args, **kwargs):
-        MyMplCanvas.__init__(self, *args, **kwargs)
-        timer = QtCore.QTimer(self)
-        timer.timeout.connect(self.update_figure)
-        timer.start(1000) #单位是毫秒
-
-    def compute_initial_figure(self):
-        self.axes.plot([0, 1, 2, 3], [1, 2, 0, 4], 'r')
-
-   #def update_figure(self):
-        # 构建4个随机整数，位于闭区间[0, 10]
-       # l = [random.randint(0, 10) for i in range(4)]
-       # self.axes.cla()  ##清除上一次的绘制数据
-       # self.axes.plot([0, 1, 2, 3], l, 'r')
-       # self.axes.set_xlabel('x')
-       # self.axes.set_ylabel('y')
-       # self.draw()
-
-#自己写一个动态绘制曲线的数组：
-    def update_figure(self):
-        self.axes.cla()  ##清除上一次的绘制数据
-        t = arange(0.0, 1000.0, 10)
-
-        #file1 = open('/daChuangWork/data/总电压.txt', 'r')
-        #listmem=file1.read()
-        #list0.append(listmem)
-        #file1.close()
-        #list0.popleft()
-#这里需要的就是，将硬件的数据传到list0，然后就是要要动态更新这个数组。
-       # self.axes.plot(t,list0, 'r')
-        self.axes.set_xlabel('时间（s）',fontproperties='SimHei')
-        self.axes.set_ylabel('1室电压（V）',fontproperties='SimHei')
-        self.draw()
-
-
 
 #############开始正式界面定义
 #定义数据模拟界面的第一个页面：槽阻抗随槽温度的变化曲线绘制
