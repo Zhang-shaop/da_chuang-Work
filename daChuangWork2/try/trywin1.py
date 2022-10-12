@@ -524,9 +524,9 @@ class Ui_Form7(object):
         file1.close()
         # 设置状态
         file1_data = float(self.lineEdit.text())
-        if file1_data < 60 and file1_data > 0:
+        if file1_data < 55 and file1_data > 0:
             state = '安全'
-        elif file1_data > 60:
+        elif file1_data > 55:
             state = '危险'
         else:
             state = '数据异常'
@@ -686,7 +686,7 @@ class Ui_Form10(object):
 class Ui_Form11(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
-        Form.resize(629, 422)
+        Form.resize(650, 422)
         self.pushButton = QtWidgets.QPushButton(Form)
         self.pushButton.setGeometry(QtCore.QRect(240, 370, 161, 31))
         font = QtGui.QFont()

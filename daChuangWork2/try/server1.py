@@ -151,7 +151,7 @@ class SocketMathServer:
 
 
 if __name__ == '__main__':
-    addr = '127.0.0.1', 10009
+    addr = '127.0.0.1', 10012
     s1 = SocketMathServer(*addr)
     s1.start()
 

@@ -2,6 +2,8 @@
 import sys
 import random
 import matplotlib
+import numpy
+
 matplotlib.use("Qt5Agg")
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QApplication, QMainWindow, QMenu, QVBoxLayout, QSizePolicy, QMessageBox, QWidget
@@ -12,7 +14,9 @@ from matplotlib.figure import Figure
 from pylab import mpl
 import os
 
-list0=[]
+list0 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+         0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+         0, 0 ,0, 0, 0, 0, 0, 0, 0, 0]
 
 #最基本的画布结构定义，所有的画布的原型。具体的修改在def compute_initial_figure(self)中修改
 class MyMplCanvas(FigureCanvas):  # 画布基类
@@ -48,6 +52,97 @@ class MyStaticMplCanvas(MyMplCanvas):
         s = 1.1763*0.000001*t*t-2.32*0.0001*t+0.0172
         self.axes.plot(t, s)
 
+#电气寿命预测技术曲线
+class MyStaticMplCanvas1(MyMplCanvas):
+    """静态画布2"""
+
+    def compute_initial_figure(self):
+        self.axes.set_xlabel('电气寿命(hour)',fontproperties='SimHei')
+        self.axes.set_ylabel('实际总槽电压（伏）',fontproperties='SimHei')
+        self.axes.set_title('实际总槽电压与电气寿命的关系近似曲线', fontproperties='SimHei')
+        t1=arange(0,4000,100)
+        s1=0.000095*t1+2.34
+        t2 = arange(4000, 5000, 100)
+        s2=0.00076*t2-0.32
+        t3=arange(5000, 8000, 100)
+        s3=0.001*t3-1.52
+
+        t=numpy.append(t1,t2)
+        t=numpy.append(t,t3)
+        s = numpy.append(s1, s2)
+        s = numpy.append(s, s3)
+        self.axes.plot(t, s)
+
+        t12 = arange(0, 8000, 100)
+        s12 = 3.48 * ones(80)
+        self.axes.plot(t12, s12, 'r')
+#按键之后绘制操作
+    def update_figure(self, x):
+        self.axes.cla()  # 每次清空一次画布
+        self.axes.set_xlabel('电气寿命(hour)', fontproperties='SimHei')
+        self.axes.set_ylabel('实际总槽电压（伏）', fontproperties='SimHei')
+        self.axes.set_title('实际总槽电压与电气寿命的关系近似曲线', fontproperties='SimHei')
+        t1 = arange(0, 4000, 100)
+        s1 = 0.000095 * t1 + 2.34
+        t2 = arange(4000, 5000, 100)
+        s2 = 0.00076 * t2 - 0.32
+        t3 = arange(5000, 8000, 100)
+        s3 = 0.001 * t3 - 1.52
+
+        t = numpy.append(t1, t2)
+        t = numpy.append(t, t3)
+        s = numpy.append(s1, s2)
+        s = numpy.append(s, s3)
+        self.axes.plot(t, s)
+
+        t12 = arange(0, 8000, 100)
+        s12 = 3.48 * ones(80)
+        self.axes.plot(t12, s12, 'r')
+        print ("实际槽电压为(伏特)：",x)
+        t11 = arange(0, 8000, 100)
+        s11 = x*ones(80)
+        self.axes.plot(t11, s11, 'g')
+        self.draw()
+
+#数据实时检测曲线绘制
+class MyStaticMplCanvas2(MyMplCanvas):
+    """静态画布2"""
+
+    def __init__(self, *args, **kwargs):
+            MyMplCanvas.__init__(self, *args, **kwargs)
+            timer = QtCore.QTimer(self)
+            timer.timeout.connect(self.update_data)
+            timer.timeout.connect(self.update_figure)
+            timer.start(1000)  # 设置成每一秒更新的模式
+
+    def compute_initial_figure(self):
+        self.axes.set_xlabel('时间（10s）', fontproperties='SimHei')
+        self.axes.set_ylabel('电压（伏特）', fontproperties='SimHei')
+        self.axes.set_title('各槽室电压随时间变化关系', fontproperties='SimHei')
+
+        self.axes.plot([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,
+                        21,22,23,24,25,26,27,28,29,30], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+         0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+         0, 0 ,0, 0, 0, 0, 0, 0, 0, 0] ,'r')
+
+    def update_data(self):
+        file1 = open('E:/new dachuang/daChuangWork2/data/1室电压.txt', 'r')
+        listmem=float(file1.read())
+        file1.close()
+        list0.append(listmem)
+        del list0[0]
+
+
+    def update_figure(self):
+            self.axes.cla()  # 每次清空一次画布
+            self.axes.plot([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,
+                        21,22,23,24,25,26,27,28,29,30], list0, 'r')
+            self.axes.set_xlabel('时间（10s）', fontproperties='SimHei')
+            self.axes.set_ylabel('电压（伏特）', fontproperties='SimHei')
+            self.axes.set_title('各槽室电压随时间变化关系', fontproperties='SimHei')
+            self.draw()
+
+
 #每秒自动刷新的图像
 class MyControlMplCanvas(MyMplCanvas):  # 单个画布
     """动态画布：每秒自动更新，更换一条折线。"""
@@ -61,7 +156,7 @@ class MyControlMplCanvas(MyMplCanvas):  # 单个画布
     def compute_initial_figure(self):
         self.axes.plot([0, 0, 0, 0], [1, 2, 3, 4], 'r')
 
-    def update_figure(self, x=1):
+    def update_figure(self, x):
         self.axes.cla()  #每次清空一次画布
         t = arange(0.0, 3.0, 0.01)
         print (x)
@@ -104,7 +199,7 @@ class MyDynamicMplCanvas(MyMplCanvas):  # 单个画布
         #file1.close()
         #list0.popleft()
 #这里需要的就是，将硬件的数据传到list0，然后就是要要动态更新这个数组。
-        self.axes.plot(t,list0, 'r')
+       # self.axes.plot(t,list0, 'r')
         self.axes.set_xlabel('时间（s）',fontproperties='SimHei')
         self.axes.set_ylabel('1室电压（V）',fontproperties='SimHei')
         self.draw()
@@ -217,7 +312,7 @@ class Ui_MainWindow0(object):
         timer.start(100)
 
     def update(self):
-        file1 = open('E:/new dachuang/daChuangWork/data/氢槽温度.txt', 'r')
+        file1 = open('E:/new dachuang/daChuangWork2/data/氢槽温度.txt', 'r')
         tt=float(file1.read())  #时刻注意数据类型的问题
         ss = format(1.1763 * 0.000001 * tt * tt - 2.32 * 0.0001 * tt + 0.0172, '.4f')
         self.lineEdit_1.setText(str(tt))
@@ -311,7 +406,7 @@ class Ui_MainWindow2(object):
 
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow") #MainWindow
-        MainWindow.resize(1200,600)
+        MainWindow.resize(1200,800)
         self.centralWidget = QtWidgets.QWidget(MainWindow)
         self.centralWidget.setObjectName("centralWidget")
 
@@ -393,7 +488,7 @@ class Ui_MainWindow2(object):
 
         #将表格绘制出来！！！！这是一个重要的部分。
         self.main_widget = QWidget()
-        sc = MyStaticMplCanvas(self.main_widget, width=5, height=4, dpi=100)
+        sc = MyStaticMplCanvas1(self.main_widget, width=5, height=4, dpi=100)
         self.horizontalLayout.addWidget(sc)
         #在垂直布局基础上增加这个水平布局。
         self.verticallayout.addLayout(self.horizontalLayout)
@@ -436,7 +531,9 @@ class Ui_MainWindow2(object):
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
-
+        #点击动作
+        self.pushButton1.clicked.connect(lambda: sc.update_figure(float(self.lineEdit_3.text())))
+        #self.pushButton1.clicked.connect(lambda: sc.update_figure(30))
         self.Mytimer()
     def Mytimer(self):
         timer = QTimer(self.centralWidget)
@@ -444,18 +541,43 @@ class Ui_MainWindow2(object):
         timer.start(100)
 
     def update(self):
-        file1 = open('E:/new dachuang/daChuangWork/data/总电压.txt', 'r')
+        file1 = open('E:/new dachuang/daChuangWork2/data/1室电压.txt', 'r')
         tt=float(file1.read())  #时刻注意数据类型的问题
-        tt=tt/6
+        file1.close()
         #关于计算预期寿命的函数部分？？？
-        ####把这个补充起来，就好了！！！
 
-        ss = format(1.1763 * 0.000001 * tt * tt - 2.32 * 0.0001 * tt + 0.0172, '.4f')
+        if tt<2.34:
+            ss=0
+        if tt>=2.34 and tt<2.72:
+            ss=10526.31579*tt-24631.57895
+        if tt>=2.72 and tt<3.48:
+            ss=1315.7895*tt+421.0526
+        if tt>=3.48 :
+            ss=1250*tt+650
+        if ss<0:
+            ss=0
+        if ss>5500:
+            ss=5500
+        ss=5500-ss
+        ss = format(ss, '.2f')
+        tt= format(tt, '.2f')
         self.lineEdit_3.setText(str(tt))
         self.lineEdit_4.setText(str(ss))
-        #为什么只能运行第一个？不能显示第二个？？？第二个不能填任何值？文件读取问题。
-        file1.close()
 
+#第一行的给定电流，计算出标准的额定电压。
+        file2= open('E:/new dachuang/daChuangWork2/data/总电流.txt', 'r')
+        tt1 = float(file2.read())  # tt1室总电流。
+        file2.close()
+
+        file3 = open('E:/new dachuang/daChuangWork2/data/氧槽温度.txt', 'r')
+        tt2 = float(file3.read())  # tt2是温度。
+        file3.close()
+
+        ss1=1.1763 * 0.000001 * tt2 * tt2 - 2.32 * 0.0001 * tt2 + 0.0172 #ss1是电阻值。
+        ss2=1.229+ss1*tt1
+        ss2=format(ss2,'.2f')
+        self.lineEdit_1.setText(str(tt1))
+        self.lineEdit_2.setText(str(ss2))
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
@@ -470,6 +592,131 @@ class Ui_MainWindow2(object):
 
 #自己定义的第四个界面：实时数据刷新界面
 class Ui_MainWindow3(object):
+
+    def setupUi(self, MainWindow):
+        MainWindow.setObjectName("MainWindow") #MainWindow
+        MainWindow.resize(1200,600)
+        self.centralWidget = QtWidgets.QWidget(MainWindow)
+        self.centralWidget.setObjectName("centralWidget")
+
+        #网格线布局
+        self.gridLayout = QtWidgets.QGridLayout(self.centralWidget)
+        self.gridLayout.setContentsMargins(11, 11, 11, 11)
+        self.gridLayout.setSpacing(6)
+        self.gridLayout.setObjectName("gridLayout")
+
+        #垂直布局0
+        self.verticallayout = QtWidgets.QVBoxLayout()
+        self.verticallayout.setContentsMargins(11, 11, 11, 11)
+        self.verticallayout.setSpacing(6)
+        self.verticallayout.setObjectName("verticallayout")
+        #水平线布局0
+        self.horizontalLayout = QtWidgets.QHBoxLayout()
+        self.horizontalLayout.setContentsMargins(11, 11, 11, 11)
+        self.horizontalLayout.setSpacing(6)
+        self.horizontalLayout.setObjectName("horizontalLayout")
+
+        # 垂直布局1
+        self.verticallayout1 = QtWidgets.QVBoxLayout()
+        self.verticallayout1.setContentsMargins(11, 11, 11, 11)
+        self.verticallayout1.setSpacing(6)
+        self.verticallayout1.setObjectName("verticallayout")
+        # 水平线布局1
+        self.horizontalLayout1 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout1.setContentsMargins(11, 11, 11, 11)
+        self.horizontalLayout1.setSpacing(6)
+        self.horizontalLayout1.setObjectName("horizontalLayout")
+
+        # 垂直布局2
+        self.verticallayout2 = QtWidgets.QVBoxLayout()
+        self.verticallayout2.setContentsMargins(11, 11, 11, 11)
+        self.verticallayout2.setSpacing(6)
+        self.verticallayout2.setObjectName("verticallayout")
+        # 水平线布局2
+        self.horizontalLayout2 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout2.setContentsMargins(11, 11, 11, 11)
+        self.horizontalLayout2.setSpacing(6)
+        self.horizontalLayout2.setObjectName("horizontalLayout")
+
+        #增加数据显示部分
+        self.main_widget2 = QWidget()
+        self.label1 = QtWidgets.QLabel(self.main_widget2)
+        self.lineEdit_1 = QtWidgets.QLineEdit(self.main_widget2)
+        self.label2 = QtWidgets.QLabel(self.main_widget2)
+        self.lineEdit_2 = QtWidgets.QLineEdit(self.main_widget2)
+        self.horizontalLayout1.addWidget(self.label1)
+        self.horizontalLayout1.addWidget(self.lineEdit_1)
+        self.horizontalLayout1.addWidget(self.label2)
+        self.horizontalLayout1.addWidget(self.lineEdit_2)
+        self.verticallayout1.addLayout(self.horizontalLayout1)
+        self.gridLayout.addLayout(self.verticallayout1,0,0,1,3)
+
+        #将表格绘制出来！！！！这是一个重要的部分。
+        self.main_widget = QWidget()
+        sc = MyStaticMplCanvas2(self.main_widget, width=5, height=4, dpi=100)
+        self.horizontalLayout.addWidget(sc)
+        #在垂直布局基础上增加这个水平布局。
+        self.verticallayout.addLayout(self.horizontalLayout)
+        #把垂直布局增加到网格线布局
+        self.gridLayout.addLayout(self.verticallayout, 1, 0, 3, 3)
+        MainWindow.setCentralWidget(self.centralWidget)
+
+        self.main_widget1 = QWidget()
+        self.pushButton = QtWidgets.QPushButton(self.main_widget1)
+       # self.horizontalLayout.addWidget(self.pushButton)
+       #self.verticallayout.addLayout(self.horizontalLayout)
+        self.verticallayout2.addWidget(self.pushButton)
+        self.horizontalLayout2.addLayout(self.verticallayout2)
+        # 把垂直布局增加到网格线布局
+        self.gridLayout.addLayout(self.horizontalLayout2, 4, 0, 1, 3)
+        MainWindow.setCentralWidget(self.centralWidget)
+        #设置字体
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setItalic(True)
+        font.setWeight(75)
+        #对于按键设置字体
+        self.pushButton.setFont(font)
+        self.pushButton.setObjectName("pushButton")
+        self.label1.setFont(font)
+        self.label1.setObjectName("label1")
+        self.label2.setFont(font)
+        self.label2.setObjectName("label2")
+####
+        self.retranslateUi(MainWindow)
+        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+
+        self.Mytimer()
+    def Mytimer(self):
+        timer = QTimer(self.centralWidget)
+        timer.timeout.connect(self.update)
+        timer.start(100)
+
+    def update(self):
+        file1 = open('E:/new dachuang/daChuangWork2/data/总电压.txt', 'r')
+        tt=float(file1.read())  #时刻注意数据类型的问题
+        file2 = open('E:/new dachuang/daChuangWork2/data/总电流.txt', 'r')
+        ss = float(file2.read())  # 时刻注意数据类型的问题
+        self.lineEdit_1.setText(str(tt))
+        self.lineEdit_2.setText(str(ss))
+        #为什么只能运行第一个？不能显示第二个？？？第二个不能填任何值？文件读取问题。
+        file1.close()
+        file2.close()
+
+
+    def retranslateUi(self, MainWindow):
+        _translate = QtCore.QCoreApplication.translate
+        MainWindow.setWindowTitle(_translate("MainWindow", "数据动态检测"))
+        self.pushButton.setText(_translate("pushButton", "返回主页"))
+        self.label1.setText(_translate("label1", "总电压（伏特）:"))
+        self.label2.setText(_translate("label2", "总电流（安培）:"))
+
+
+
+#综合模板界面（未使用）
+class Ui_MainWindow4(object):
 
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow") #MainWindow
