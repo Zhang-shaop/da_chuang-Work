@@ -21,11 +21,6 @@ class SocketMathClient:
 
     def start(self):
         self._sock.connect(self.addr)
-        # my_addr, my_port = self._sock.getsockname()
-        # self._sock.send('{} is ready'.format((my_addr, my_port)).encode())
-        # msg = input()
-        # encode_msg = msg
-        # self.send(encode_msg)
         thread_obj = threading.Thread(target=self.recv, name='recv')
         thread_obj.start()
 

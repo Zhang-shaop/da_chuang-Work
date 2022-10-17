@@ -678,10 +678,10 @@ class Ui_Form10(object):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "团队介绍"))
         self.pushButton.setText(_translate("Form", "返回主页"))
-        self.label.setText(_translate("Form", "\n\n\n\n团队简介：\n"
-                                              "队长：曹瑜，负责组织开发进度，文献阅读整理，路线规划。\n"
-                                              "图像识别技术开发：刘建胜，王敬修\n"
-                                              "展示页面设计及部分功能设计：张劭鹏，孙钰昊"))
+        self.label.setText(_translate("Form", "\n\n\n\n团队简介：\n"))
+                                             # "队长：曹瑜，负责组织开发进度，文献阅读整理，路线规划。\n"
+                                              #"图像识别技术开发：刘建胜，王敬修\n"
+                                              #"展示页面设计及部分功能设计：张劭鹏，孙钰昊"))
 
 class Ui_Form11(object):
     def setupUi(self, Form):

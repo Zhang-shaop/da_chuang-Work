@@ -335,7 +335,6 @@ class Ui_MainWindow0(object):
         ss = format(1.1763 * 0.000001 * tt * tt - 2.32 * 0.0001 * tt + 0.0172, '.4f')
         self.lineEdit_1.setText(str(tt))
         self.lineEdit_2.setText(str(ss))
-        #为什么只能运行第一个？不能显示第二个？？？第二个不能填任何值？文件读取问题。
         file1.close()
 
 
@@ -767,7 +766,7 @@ class Ui_MainWindow4(object):
         #将三个表格绘制出来！！！！这是一个重要的部分。
         self.main_widget = QWidget()
         sc = MyStaticMplCanvas(self.main_widget, width=5, height=4, dpi=100)
-        dc = MyDynamicMplCanvas(self.main_widget, width=5, height=4, dpi=100)
+        #dc = MyDynamicMplCanvas(self.main_widget, width=5, height=4, dpi=100)
         cc = MyControlMplCanvas(self.main_widget, width=5, height=4, dpi=100)
         self.horizontalLayout.addWidget(sc)
         self.horizontalLayout.addWidget(dc)
